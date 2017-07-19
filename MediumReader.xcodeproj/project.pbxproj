@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		463564BD1F1A92F900B48B4B /* PostCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463564BC1F1A92F900B48B4B /* PostCollection.swift */; };
+		463564BF1F1A932700B48B4B /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463564BE1F1A932700B48B4B /* Post.swift */; };
+		463564C21F1AA68B00B48B4B /* JsonParsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463564C11F1AA68B00B48B4B /* JsonParsers.swift */; };
 		46B211491F103281006DCB73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B211481F103281006DCB73 /* AppDelegate.swift */; };
 		46B2114B1F103281006DCB73 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B2114A1F103281006DCB73 /* FirstViewController.swift */; };
 		46B2114D1F103281006DCB73 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B2114C1F103281006DCB73 /* SecondViewController.swift */; };
@@ -35,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		463564BC1F1A92F900B48B4B /* PostCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCollection.swift; sourceTree = "<group>"; };
+		463564BE1F1A932700B48B4B /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		463564C11F1AA68B00B48B4B /* JsonParsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonParsers.swift; sourceTree = "<group>"; };
 		46B211451F103281006DCB73 /* MediumReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediumReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46B211481F103281006DCB73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46B2114A1F103281006DCB73 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +82,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		463564BB1F1A92C100B48B4B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				463564BC1F1A92F900B48B4B /* PostCollection.swift */,
+				463564BE1F1A932700B48B4B /* Post.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		463564C01F1AA5EA00B48B4B /* Parsers */ = {
+			isa = PBXGroup;
+			children = (
+				463564C11F1AA68B00B48B4B /* JsonParsers.swift */,
+			);
+			name = Parsers;
+			sourceTree = "<group>";
+		};
 		46B2113C1F103281006DCB73 = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +122,8 @@
 		46B211471F103281006DCB73 /* MediumReader */ = {
 			isa = PBXGroup;
 			children = (
+				463564C01F1AA5EA00B48B4B /* Parsers */,
+				463564BB1F1A92C100B48B4B /* Models */,
 				46B211481F103281006DCB73 /* AppDelegate.swift */,
 				46B2114A1F103281006DCB73 /* FirstViewController.swift */,
 				46B2114C1F103281006DCB73 /* SecondViewController.swift */,
@@ -263,8 +288,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				46B2114D1F103281006DCB73 /* SecondViewController.swift in Sources */,
+				463564BD1F1A92F900B48B4B /* PostCollection.swift in Sources */,
+				463564C21F1AA68B00B48B4B /* JsonParsers.swift in Sources */,
 				46B211491F103281006DCB73 /* AppDelegate.swift in Sources */,
 				46B2114B1F103281006DCB73 /* FirstViewController.swift in Sources */,
+				463564BF1F1A932700B48B4B /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,6 +537,7 @@
 				46B211711F103282006DCB73 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		46B211721F103282006DCB73 /* Build configuration list for PBXNativeTarget "MediumReaderTests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +546,7 @@
 				46B211741F103282006DCB73 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		46B211751F103282006DCB73 /* Build configuration list for PBXNativeTarget "MediumReaderUITests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +555,7 @@
 				46B211771F103282006DCB73 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
