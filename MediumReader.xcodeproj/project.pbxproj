@@ -10,6 +10,8 @@
 		463564BD1F1A92F900B48B4B /* PostCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463564BC1F1A92F900B48B4B /* PostCollection.swift */; };
 		463564BF1F1A932700B48B4B /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463564BE1F1A932700B48B4B /* Post.swift */; };
 		463564C21F1AA68B00B48B4B /* JsonParsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463564C11F1AA68B00B48B4B /* JsonParsers.swift */; };
+		463564C51F1F2B3500B48B4B /* MediumApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463564C41F1F2B3500B48B4B /* MediumApiManager.swift */; };
+		463564C71F1FEE8600B48B4B /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463564C61F1FEE8600B48B4B /* Context.swift */; };
 		46B211491F103281006DCB73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B211481F103281006DCB73 /* AppDelegate.swift */; };
 		46B2114B1F103281006DCB73 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B2114A1F103281006DCB73 /* FirstViewController.swift */; };
 		46B2114D1F103281006DCB73 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B2114C1F103281006DCB73 /* SecondViewController.swift */; };
@@ -41,6 +43,8 @@
 		463564BC1F1A92F900B48B4B /* PostCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCollection.swift; sourceTree = "<group>"; };
 		463564BE1F1A932700B48B4B /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		463564C11F1AA68B00B48B4B /* JsonParsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonParsers.swift; sourceTree = "<group>"; };
+		463564C41F1F2B3500B48B4B /* MediumApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediumApiManager.swift; sourceTree = "<group>"; };
+		463564C61F1FEE8600B48B4B /* Context.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
 		46B211451F103281006DCB73 /* MediumReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediumReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46B211481F103281006DCB73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46B2114A1F103281006DCB73 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +103,14 @@
 			name = Parsers;
 			sourceTree = "<group>";
 		};
+		463564C31F1F2B0F00B48B4B /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				463564C41F1F2B3500B48B4B /* MediumApiManager.swift */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
 		46B2113C1F103281006DCB73 = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +134,7 @@
 		46B211471F103281006DCB73 /* MediumReader */ = {
 			isa = PBXGroup;
 			children = (
+				463564C31F1F2B0F00B48B4B /* Managers */,
 				463564C01F1AA5EA00B48B4B /* Parsers */,
 				463564BB1F1A92C100B48B4B /* Models */,
 				46B211481F103281006DCB73 /* AppDelegate.swift */,
@@ -131,6 +144,7 @@
 				46B211511F103281006DCB73 /* Assets.xcassets */,
 				46B211531F103281006DCB73 /* LaunchScreen.storyboard */,
 				46B211561F103281006DCB73 /* Info.plist */,
+				463564C61F1FEE8600B48B4B /* Context.swift */,
 			);
 			path = MediumReader;
 			sourceTree = "<group>";
@@ -289,8 +303,10 @@
 			files = (
 				46B2114D1F103281006DCB73 /* SecondViewController.swift in Sources */,
 				463564BD1F1A92F900B48B4B /* PostCollection.swift in Sources */,
+				463564C51F1F2B3500B48B4B /* MediumApiManager.swift in Sources */,
 				463564C21F1AA68B00B48B4B /* JsonParsers.swift in Sources */,
 				46B211491F103281006DCB73 /* AppDelegate.swift in Sources */,
+				463564C71F1FEE8600B48B4B /* Context.swift in Sources */,
 				46B2114B1F103281006DCB73 /* FirstViewController.swift in Sources */,
 				463564BF1F1A932700B48B4B /* Post.swift in Sources */,
 			);
