@@ -12,6 +12,7 @@
 		463564C21F1AA68B00B48B4B /* JsonParsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463564C11F1AA68B00B48B4B /* JsonParsers.swift */; };
 		463564C51F1F2B3500B48B4B /* MediumApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463564C41F1F2B3500B48B4B /* MediumApiManager.swift */; };
 		463564C71F1FEE8600B48B4B /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463564C61F1FEE8600B48B4B /* Context.swift */; };
+		4652E3B41F21C9DB00BB5164 /* PostInfoTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4652E3B31F21C9DB00BB5164 /* PostInfoTableCellView.swift */; };
 		46B211491F103281006DCB73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B211481F103281006DCB73 /* AppDelegate.swift */; };
 		46B2114B1F103281006DCB73 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B2114A1F103281006DCB73 /* FirstViewController.swift */; };
 		46B2114D1F103281006DCB73 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B2114C1F103281006DCB73 /* SecondViewController.swift */; };
@@ -45,6 +46,7 @@
 		463564C11F1AA68B00B48B4B /* JsonParsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonParsers.swift; sourceTree = "<group>"; };
 		463564C41F1F2B3500B48B4B /* MediumApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediumApiManager.swift; sourceTree = "<group>"; };
 		463564C61F1FEE8600B48B4B /* Context.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
+		4652E3B31F21C9DB00BB5164 /* PostInfoTableCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostInfoTableCellView.swift; sourceTree = "<group>"; };
 		46B211451F103281006DCB73 /* MediumReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediumReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46B211481F103281006DCB73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46B2114A1F103281006DCB73 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +113,14 @@
 			name = Managers;
 			sourceTree = "<group>";
 		};
+		4652E3B21F21C9AE00BB5164 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4652E3B31F21C9DB00BB5164 /* PostInfoTableCellView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		46B2113C1F103281006DCB73 = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +144,7 @@
 		46B211471F103281006DCB73 /* MediumReader */ = {
 			isa = PBXGroup;
 			children = (
+				4652E3B21F21C9AE00BB5164 /* Views */,
 				463564C31F1F2B0F00B48B4B /* Managers */,
 				463564C01F1AA5EA00B48B4B /* Parsers */,
 				463564BB1F1A92C100B48B4B /* Models */,
@@ -301,6 +312,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4652E3B41F21C9DB00BB5164 /* PostInfoTableCellView.swift in Sources */,
 				46B2114D1F103281006DCB73 /* SecondViewController.swift in Sources */,
 				463564BD1F1A92F900B48B4B /* PostCollection.swift in Sources */,
 				463564C51F1F2B3500B48B4B /* MediumApiManager.swift in Sources */,
