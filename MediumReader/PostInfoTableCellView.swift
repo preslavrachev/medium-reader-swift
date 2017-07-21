@@ -6,8 +6,8 @@
 //  Copyright © 2017 Preslav Rachev. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-class PostInfoTableCellView {
-    
+class PostInfoTableCellView: UITableViewCell {
+    //@IBOutlet weak override var textLabel: UILabel?
 }

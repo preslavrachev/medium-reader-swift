@@ -24,22 +24,30 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return context.mediumApiManager
     }
     
+    var postCollection: PostCollection? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         postCollectionView.delegate = self
         postCollectionView.dataSource = self
         
         apiManager.fetchTopPosts {
-            postCollection in print(postCollection)
+            postCollection in
+            self.postCollection = postCollection
+            self.postCollectionView.reloadData()
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        guard let posts = postCollection?.posts.count else { return 0 }
+        return posts
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell")!
+        if let postId = postCollection?.posts[indexPath.row].id {
+            cell.textLabel?.text = postId
+        }
 //        cell.articles = self.articles?[indexPath.row]
 //        println("cellForRowAtIndexPath")
         return cell
