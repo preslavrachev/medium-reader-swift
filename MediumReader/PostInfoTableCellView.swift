@@ -9,5 +9,6 @@
 import UIKit
 
 class PostInfoTableCellView: UITableViewCell {
-    //@IBOutlet weak override var textLabel: UILabel?
+    @IBOutlet weak var titleLabel: UILabel?
+    @IBOutlet weak var coverImage: UIImageView?
 }

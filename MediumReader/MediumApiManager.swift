@@ -9,13 +9,14 @@
 import Foundation
 
 protocol MediumApiManager {
-    func fetchTopPosts(cb: @escaping (PostCollection) -> Void)
+    func fetchTopPosts(callback: @escaping (PostCollection) -> Void)
+    func fetchImage(with imageId: String, callback: @escaping (Data) -> Void)
 }
 
 class DefaultMediumApiManager: MediumApiManager {
-    func fetchTopPosts(cb: @escaping (PostCollection) -> Void) {
+    func fetchTopPosts(callback: @escaping (PostCollection) -> Void) {
         let url = URL(string: "https://medium.com/top-stories?format=json")
-        let task = URLSession.shared.dataTask(with: url!) {(data,b,c) in
+        let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
             print("data loaded")
             var prunedData = data
             prunedData?.removeFirst(16)
@@ -26,7 +27,22 @@ class DefaultMediumApiManager: MediumApiManager {
             let postCollection = PostCollection(json: json!)
             print("data: \(postCollection)")
             
-            cb(postCollection!)
+            DispatchQueue.main.async {
+                callback(postCollection!)
+            }
+        }
+        
+        task.resume()
+    }
+    
+    func fetchImage(with imageId: String, callback: @escaping (Data) -> Void) {
+        let url = URL(string: "https://cdn-images-1.medium.com/max/800/" + imageId)
+        let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
+            // TODO: handle potential errors
+            
+            DispatchQueue.main.async {
+                callback(data!)
+            }
         }
         
         task.resume()

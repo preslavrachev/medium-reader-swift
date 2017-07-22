@@ -44,9 +44,15 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell")!
-        if let postId = postCollection?.posts[indexPath.row].id {
-            cell.textLabel?.text = postId
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell")! as! PostInfoTableCellView
+        if let title = postCollection?.posts[indexPath.row].title {
+            cell.titleLabel?.text = title
+        }
+        
+        if let imageId = postCollection?.posts[indexPath.row].imageId {
+            apiManager.fetchImage(with: imageId) {
+                imageData in cell.coverImage?.image = UIImage(data: imageData)
+            }
         }
 //        cell.articles = self.articles?[indexPath.row]
 //        println("cellForRowAtIndexPath")

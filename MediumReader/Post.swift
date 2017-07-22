@@ -10,5 +10,6 @@ import Foundation
 
 struct Post {
     let id: String
-    //let title: String
+    let title: String
+    var imageId: String? = nil
 }

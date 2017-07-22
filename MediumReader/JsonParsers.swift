@@ -11,6 +11,12 @@ import Foundation
 extension Post {
     init?(json: [String: Any]) {
         self.id = json["id"] as! String
+        self.title = json["title"] as! String
+        if let virtuals = json["virtuals"] as? [String:Any] {
+            if let previewImage = virtuals["previewImage"] as? [String:Any] {
+                self.imageId = (previewImage["imageId"] as! String)
+            }
+        }
     }
 }
 
