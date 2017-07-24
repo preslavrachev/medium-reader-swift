@@ -13,7 +13,9 @@ extension UIViewController: ContextProvider {
         return UIApplication.shared.delegate as! ContextProvider
     }
     
-    var context: Context { return contextProvider.context }
+    var context: Context {
+        return contextProvider.context
+    }
 }
 
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
