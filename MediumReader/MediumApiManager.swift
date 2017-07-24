@@ -13,19 +13,43 @@ protocol MediumApiManager {
     func fetchImage(with imageId: String, callback: @escaping (Data) -> Void)
 }
 
+private class MediumURLSessionDelegate: NSObject, URLSessionDataDelegate {
+    public func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, willCacheResponse proposedResponse: CachedURLResponse, completionHandler: @escaping (CachedURLResponse?) -> Swift.Void) {
+        
+        //NOTE: This method will be called only in case a task does not provide its own completion handler
+        completionHandler(proposedResponse)
+    }
+}
+
 class DefaultMediumApiManager: MediumApiManager {
+    
+    private let urlSession: URLSession = {
+        let urlSessionConfiguration: URLSessionConfiguration = URLSessionConfiguration.default.copy() as! URLSessionConfiguration
+        // Always cache by default, let the separate requests decide whether to ignore caching or not
+        urlSessionConfiguration.requestCachePolicy = NSURLRequest.CachePolicy.returnCacheDataElseLoad
+        
+        return URLSession(
+            configuration: urlSessionConfiguration,
+            delegate: MediumURLSessionDelegate(),
+            delegateQueue: OperationQueue.main
+        )
+    }()
+    
+    init() {
+        Swift.print(urlSession.delegate!)
+    }
+    
     func fetchTopPosts(callback: @escaping (PostCollection) -> Void) {
         let url = URL(string: "https://medium.com/top-stories?format=json")
-        let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
+        let request = URLRequest(url: url!, cachePolicy: NSURLRequest.CachePolicy.reloadIgnoringCacheData)
+        
+        let task = urlSession.dataTask(with: request) {(data, response, error) in
             print("data loaded")
             var prunedData = data
             prunedData?.removeFirst(16)
-            var dataAsString = NSString(data: prunedData!, encoding: String.Encoding.utf8.rawValue)
-            //dataAsString = dataAsString?.replacingOccurrences(of: "])}while(1);</x>", with: "") as! NSString
             
             let json = try? JSONSerialization.jsonObject(with: prunedData!, options: []) as! [String: Any]
             let postCollection = PostCollection(json: json!)
-            print("data: \(postCollection)")
             
             DispatchQueue.main.async {
                 callback(postCollection!)
@@ -37,7 +61,8 @@ class DefaultMediumApiManager: MediumApiManager {
     
     func fetchImage(with imageId: String, callback: @escaping (Data) -> Void) {
         let url = URL(string: "https://cdn-images-1.medium.com/max/800/" + imageId)
-        let task = URLSession.shared.dataTask(with: url!) {(data, response, error) in
+        let task = urlSession.dataTask(with: url!)
+        {(data, response, error) in
             // TODO: handle potential errors
             
             DispatchQueue.main.async {
