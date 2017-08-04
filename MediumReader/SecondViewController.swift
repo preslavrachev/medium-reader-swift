@@ -8,11 +8,19 @@
 
 import UIKit
 
-class SecondViewController: UIViewController {
+class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var tagView: UITableView!
+    
+    private var tags:Array<String> {
+        return context.appState.tags
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        tagView.delegate = self
+        tagView.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +28,15 @@ class SecondViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tags.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TagCell")!
+        
+        cell.textLabel?.text = tags[indexPath.row]
+        return cell
+    }
 }
 

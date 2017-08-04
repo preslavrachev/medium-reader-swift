@@ -13,11 +13,11 @@ protocol ContextProvider {
 }
 
 protocol Context {
+    var appState: AppState {get}
     var mediumApiManager: MediumApiManager {get}
 }
 
 class DefaultContext: Context {
-    static let sharedInstance = DefaultContext()
-    
+    lazy var appState: AppState = AppState();
     lazy var mediumApiManager: MediumApiManager = DefaultMediumApiManager();
 }

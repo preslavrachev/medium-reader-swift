@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		460739051F2B00BB0032D966 /* ContextITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460739041F2B00BB0032D966 /* ContextITest.swift */; };
+		460739091F2B07B30032D966 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460739081F2B07B30032D966 /* AppState.swift */; };
 		463564BD1F1A92F900B48B4B /* PostCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463564BC1F1A92F900B48B4B /* PostCollection.swift */; };
 		463564BF1F1A932700B48B4B /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463564BE1F1A932700B48B4B /* Post.swift */; };
 		463564C21F1AA68B00B48B4B /* JsonParsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463564C11F1AA68B00B48B4B /* JsonParsers.swift */; };
@@ -41,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		460739041F2B00BB0032D966 /* ContextITest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextITest.swift; sourceTree = "<group>"; };
+		460739081F2B07B30032D966 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		463564BC1F1A92F900B48B4B /* PostCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCollection.swift; sourceTree = "<group>"; };
 		463564BE1F1A932700B48B4B /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		463564C11F1AA68B00B48B4B /* JsonParsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonParsers.swift; sourceTree = "<group>"; };
@@ -156,6 +160,7 @@
 				46B211531F103281006DCB73 /* LaunchScreen.storyboard */,
 				46B211561F103281006DCB73 /* Info.plist */,
 				463564C61F1FEE8600B48B4B /* Context.swift */,
+				460739081F2B07B30032D966 /* AppState.swift */,
 			);
 			path = MediumReader;
 			sourceTree = "<group>";
@@ -165,6 +170,7 @@
 			children = (
 				46B2115F1F103282006DCB73 /* MediumReaderTests.swift */,
 				46B211611F103282006DCB73 /* Info.plist */,
+				460739041F2B00BB0032D966 /* ContextITest.swift */,
 			);
 			path = MediumReaderTests;
 			sourceTree = "<group>";
@@ -313,6 +319,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4652E3B41F21C9DB00BB5164 /* PostInfoTableCellView.swift in Sources */,
+				460739091F2B07B30032D966 /* AppState.swift in Sources */,
 				46B2114D1F103281006DCB73 /* SecondViewController.swift in Sources */,
 				463564BD1F1A92F900B48B4B /* PostCollection.swift in Sources */,
 				463564C51F1F2B3500B48B4B /* MediumApiManager.swift in Sources */,
@@ -329,6 +336,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46B211601F103282006DCB73 /* MediumReaderTests.swift in Sources */,
+				460739051F2B00BB0032D966 /* ContextITest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
