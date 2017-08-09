@@ -8,6 +8,12 @@
 
 import Foundation
 
+enum PostListViewSelectedState {
+    case top
+    case tag(String)
+}
+
 class AppState {
+    var postListViewSelectedState = PostListViewSelectedState.top
     let tags: Array<String> = ["Swift", "Kotlin", "Bitcoin", "Ethereum"]
 }

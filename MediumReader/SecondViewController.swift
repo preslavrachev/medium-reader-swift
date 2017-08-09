@@ -38,5 +38,10 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.textLabel?.text = tags[indexPath.row]
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        context.appState.postListViewSelectedState = PostListViewSelectedState.tag(tags[indexPath.row])
+        tabBarController?.selectedIndex = 0
+    }
 }
 

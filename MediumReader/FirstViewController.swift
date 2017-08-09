@@ -29,6 +29,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var postCollection: PostCollection? = nil
     
     override func viewDidLoad() {
+        print("VIEW DID LOAD")
         super.viewDidLoad()
         postCollectionView.delegate = self
         postCollectionView.dataSource = self
@@ -59,6 +60,10 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
 //        cell.articles = self.articles?[indexPath.row]
 //        println("cellForRowAtIndexPath")
         return cell
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("VIEW WILL APPEAR")
     }
 
     override func didReceiveMemoryWarning() {
