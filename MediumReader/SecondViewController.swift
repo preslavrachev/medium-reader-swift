@@ -40,7 +40,7 @@ class SecondViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        context.appState.postListViewSelectedState = PostListViewSelectedState.tag(tags[indexPath.row])
+        context.appState.postListViewSelectedState = PageType.tag(tag: tags[indexPath.row])
         tabBarController?.selectedIndex = 0
     }
 }

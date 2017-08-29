@@ -10,6 +10,7 @@ import Foundation
 
 protocol MediumApiManager {
     func fetchTopPosts(callback: @escaping (PostCollection) -> Void)
+    func fetchTagPosts(tag: String, callback: @escaping (PostCollection) -> Void)
     func fetchImage(with imageId: String, callback: @escaping (Data) -> Void)
 }
 
@@ -39,8 +40,24 @@ class DefaultMediumApiManager: MediumApiManager {
         Swift.print(urlSession.delegate!)
     }
     
-    func fetchTopPosts(callback: @escaping (PostCollection) -> Void) {
-        let url = URL(string: "https://medium.com/top-stories?format=json")
+    public func fetchTopPosts(callback: @escaping (PostCollection) -> Void) -> Void {
+        fetchPostCollection(with: PageType.top) {
+            jsonResult in DispatchQueue.main.async {
+                callback(PostCollection(top_posts_json: jsonResult)!)
+            }
+        }
+    }
+    
+    public func fetchTagPosts(tag: String, callback: @escaping (PostCollection) -> Void) -> Void {
+        fetchPostCollection(with: PageType.tag(tag: tag)) {
+            jsonResult in DispatchQueue.main.async {
+                callback(PostCollection(tag_posts_json: jsonResult)!)
+            }
+        }
+    }
+    
+    private func fetchPostCollection(with pageType: PageType, callback: @escaping ([String: Any]) -> Void) {
+        let url = URL(string: "https://medium.com/\(pageType.pageMapping())?format=json")
         let request = URLRequest(url: url!, cachePolicy: NSURLRequest.CachePolicy.reloadIgnoringCacheData)
         
         let task = urlSession.dataTask(with: request) {(data, response, error) in
@@ -49,11 +66,7 @@ class DefaultMediumApiManager: MediumApiManager {
             prunedData?.removeFirst(16)
             
             let json = try? JSONSerialization.jsonObject(with: prunedData!, options: []) as! [String: Any]
-            let postCollection = PostCollection(json: json!)
-            
-            DispatchQueue.main.async {
-                callback(postCollection!)
-            }
+            callback(json!)
         }
         
         task.resume()

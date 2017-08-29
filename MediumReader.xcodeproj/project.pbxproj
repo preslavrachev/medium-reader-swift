@@ -23,6 +23,7 @@
 		46B211551F103281006DCB73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46B211531F103281006DCB73 /* LaunchScreen.storyboard */; };
 		46B211601F103282006DCB73 /* MediumReaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B2115F1F103282006DCB73 /* MediumReaderTests.swift */; };
 		46B2116B1F103282006DCB73 /* MediumReaderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B2116A1F103282006DCB73 /* MediumReaderUITests.swift */; };
+		46DF1FC41F3AD9A700060C26 /* PageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DF1FC31F3AD9A700060C26 /* PageType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		46B211661F103282006DCB73 /* MediumReaderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MediumReaderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		46B2116A1F103282006DCB73 /* MediumReaderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediumReaderUITests.swift; sourceTree = "<group>"; };
 		46B2116C1F103282006DCB73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		46DF1FC31F3AD9A700060C26 /* PageType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 			children = (
 				463564BC1F1A92F900B48B4B /* PostCollection.swift */,
 				463564BE1F1A932700B48B4B /* Post.swift */,
+				46DF1FC31F3AD9A700060C26 /* PageType.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				46B211491F103281006DCB73 /* AppDelegate.swift in Sources */,
 				463564C71F1FEE8600B48B4B /* Context.swift in Sources */,
 				46B2114B1F103281006DCB73 /* FirstViewController.swift in Sources */,
+				46DF1FC41F3AD9A700060C26 /* PageType.swift in Sources */,
 				463564BF1F1A932700B48B4B /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

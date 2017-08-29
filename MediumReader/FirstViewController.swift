@@ -33,12 +33,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
         postCollectionView.delegate = self
         postCollectionView.dataSource = self
-        
-        apiManager.fetchTopPosts {
-            postCollection in
-            self.postCollection = postCollection
-            self.postCollectionView.reloadData()
-        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -63,7 +57,21 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print("VIEW WILL APPEAR")
+        switch context.appState.postListViewSelectedState {
+        case .top:
+            apiManager.fetchTopPosts {
+                postCollection in
+                self.postCollection = postCollection
+                self.postCollectionView.reloadData()
+            }
+        case .tag(let selectedTag):
+            apiManager.fetchTagPosts(tag: selectedTag) {
+                postCollection in
+                self.postCollection = postCollection
+                self.postCollectionView.reloadData()
+            }
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -73,4 +81,3 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
 
 }
-
