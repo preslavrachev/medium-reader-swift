@@ -20,6 +20,7 @@ extension UIViewController: ContextProvider {
 
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var tagCollectionView: UICollectionView!
     @IBOutlet weak var postCollectionView: UITableView!
     
     var apiManager: MediumApiManager {
@@ -31,6 +32,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     override func viewDidLoad() {
         print("VIEW DID LOAD")
         super.viewDidLoad()
+        tagCollectionView.dataSource = context.appState.tagViewDataSource
         postCollectionView.delegate = self
         postCollectionView.dataSource = self
     }

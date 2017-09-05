@@ -14,6 +14,7 @@
 		463564C21F1AA68B00B48B4B /* JsonParsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463564C11F1AA68B00B48B4B /* JsonParsers.swift */; };
 		463564C51F1F2B3500B48B4B /* MediumApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463564C41F1F2B3500B48B4B /* MediumApiManager.swift */; };
 		463564C71F1FEE8600B48B4B /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463564C61F1FEE8600B48B4B /* Context.swift */; };
+		4646B8271F5D1D0200D6FD5E /* TagViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4646B8261F5D1D0200D6FD5E /* TagViewCell.swift */; };
 		4652E3B41F21C9DB00BB5164 /* PostInfoTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4652E3B31F21C9DB00BB5164 /* PostInfoTableCellView.swift */; };
 		46B211491F103281006DCB73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B211481F103281006DCB73 /* AppDelegate.swift */; };
 		46B2114B1F103281006DCB73 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B2114A1F103281006DCB73 /* FirstViewController.swift */; };
@@ -51,6 +52,7 @@
 		463564C11F1AA68B00B48B4B /* JsonParsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonParsers.swift; sourceTree = "<group>"; };
 		463564C41F1F2B3500B48B4B /* MediumApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediumApiManager.swift; sourceTree = "<group>"; };
 		463564C61F1FEE8600B48B4B /* Context.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
+		4646B8261F5D1D0200D6FD5E /* TagViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagViewCell.swift; sourceTree = "<group>"; };
 		4652E3B31F21C9DB00BB5164 /* PostInfoTableCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostInfoTableCellView.swift; sourceTree = "<group>"; };
 		46B211451F103281006DCB73 /* MediumReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediumReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		46B211481F103281006DCB73 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				4652E3B31F21C9DB00BB5164 /* PostInfoTableCellView.swift */,
+				4646B8261F5D1D0200D6FD5E /* TagViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				463564C51F1F2B3500B48B4B /* MediumApiManager.swift in Sources */,
 				463564C21F1AA68B00B48B4B /* JsonParsers.swift in Sources */,
 				46B211491F103281006DCB73 /* AppDelegate.swift in Sources */,
+				4646B8271F5D1D0200D6FD5E /* TagViewCell.swift in Sources */,
 				463564C71F1FEE8600B48B4B /* Context.swift in Sources */,
 				46B2114B1F103281006DCB73 /* FirstViewController.swift in Sources */,
 				46DF1FC41F3AD9A700060C26 /* PageType.swift in Sources */,
