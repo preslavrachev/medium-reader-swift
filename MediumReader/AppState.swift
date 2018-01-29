@@ -9,7 +9,25 @@
 import Foundation
 import UIKit
 
+protocol AppStateChangeHandler {
+    func onStateChange(newState: PageType) -> Void
+}
+
 class AppState {
+    
+    class TagViewDelegate: NSObject, UICollectionViewDelegate {
+        var handler: (PageType) -> Void = { _ in /* does nothing */ }
+            
+        func registerStateSwitchHandler(handler: @escaping (PageType) -> Void) {
+            self.handler = handler
+        }
+        
+        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            let cell = collectionView.cellForItem(at: indexPath) as! TagViewCell
+            handler(PageType.tag(tag: (cell.label?.text)!))
+        }
+    }
+    
     class TagViewDataSource: NSObject, UICollectionViewDataSource {
         
         var dataProvider: () -> Array<String> = { return [""] }
@@ -34,6 +52,7 @@ class AppState {
     
     var postListViewSelectedState = PageType.top
     let tags: Array<String> = ["Swift", "Kotlin", "Bitcoin", "Ethereum"]
+    var stateChangeHandlers:Array<AppStateChangeHandler> = []
     
     public let tagViewDataSource: TagViewDataSource = TagViewDataSource();
     
@@ -42,5 +61,9 @@ class AppState {
         tagViewDataSource.registerDataProvider {
             return self.tags
         }
+    }
+    
+    func registerStateChangeHandler(stateChangeHandler: AppStateChangeHandler) -> Void {
+        stateChangeHandlers.append(stateChangeHandler)
     }
 }

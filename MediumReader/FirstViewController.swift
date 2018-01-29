@@ -33,6 +33,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         print("VIEW DID LOAD")
         super.viewDidLoad()
         tagCollectionView.dataSource = context.appState.tagViewDataSource
+        tagCollectionView.delegate = AppState.TagViewDelegate()
         postCollectionView.delegate = self
         postCollectionView.dataSource = self
     }
