@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="190" id="Ie7-Cx-EP6">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="190" id="Ie7-Cx-EP6" customClass="PostInfoTableCellView" customModule="MediumReader" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="366" height="190"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ie7-Cx-EP6" id="2oo-RJ-RIK">
@@ -48,6 +48,10 @@
                     <constraint firstItem="ZQp-C9-zIq" firstAttribute="leading" secondItem="2oo-RJ-RIK" secondAttribute="leadingMargin" id="qs3-j8-r48"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="coverImage" destination="Boh-GL-YBE" id="wqt-zX-Log"/>
+                <outlet property="titleLabel" destination="ZQp-C9-zIq" id="0OJ-Rh-lwj"/>
+            </connections>
             <point key="canvasLocation" x="-20" y="79"/>
         </tableViewCell>
     </objects>
