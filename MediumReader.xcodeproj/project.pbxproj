@@ -14,6 +14,7 @@
 		463564C21F1AA68B00B48B4B /* JsonParsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463564C11F1AA68B00B48B4B /* JsonParsers.swift */; };
 		463564C51F1F2B3500B48B4B /* MediumApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463564C41F1F2B3500B48B4B /* MediumApiManager.swift */; };
 		463564C71F1FEE8600B48B4B /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463564C61F1FEE8600B48B4B /* Context.swift */; };
+		463C413F20204E6600E8D249 /* PostCollectionTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 463C413E20204E6600E8D249 /* PostCollectionTableCell.xib */; };
 		4646B8271F5D1D0200D6FD5E /* TagViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4646B8261F5D1D0200D6FD5E /* TagViewCell.swift */; };
 		4652E3B41F21C9DB00BB5164 /* PostInfoTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4652E3B31F21C9DB00BB5164 /* PostInfoTableCellView.swift */; };
 		46B211491F103281006DCB73 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B211481F103281006DCB73 /* AppDelegate.swift */; };
@@ -52,6 +53,7 @@
 		463564C11F1AA68B00B48B4B /* JsonParsers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JsonParsers.swift; sourceTree = "<group>"; };
 		463564C41F1F2B3500B48B4B /* MediumApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediumApiManager.swift; sourceTree = "<group>"; };
 		463564C61F1FEE8600B48B4B /* Context.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
+		463C413E20204E6600E8D249 /* PostCollectionTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCollectionTableCell.xib; sourceTree = "<group>"; };
 		4646B8261F5D1D0200D6FD5E /* TagViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagViewCell.swift; sourceTree = "<group>"; };
 		4652E3B31F21C9DB00BB5164 /* PostInfoTableCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostInfoTableCellView.swift; sourceTree = "<group>"; };
 		46B211451F103281006DCB73 /* MediumReader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediumReader.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,6 +124,14 @@
 			name = Managers;
 			sourceTree = "<group>";
 		};
+		463C413D20204E2600E8D249 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				463C413E20204E6600E8D249 /* PostCollectionTableCell.xib */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		4652E3B21F21C9AE00BB5164 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,6 +164,7 @@
 		46B211471F103281006DCB73 /* MediumReader */ = {
 			isa = PBXGroup;
 			children = (
+				463C413D20204E2600E8D249 /* UI */,
 				4652E3B21F21C9AE00BB5164 /* Views */,
 				463564C31F1F2B0F00B48B4B /* Managers */,
 				463564C01F1AA5EA00B48B4B /* Parsers */,
@@ -299,6 +310,7 @@
 			files = (
 				46B211551F103281006DCB73 /* LaunchScreen.storyboard in Resources */,
 				46B211521F103281006DCB73 /* Assets.xcassets in Resources */,
+				463C413F20204E6600E8D249 /* PostCollectionTableCell.xib in Resources */,
 				46B211501F103281006DCB73 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
