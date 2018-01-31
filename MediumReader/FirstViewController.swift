@@ -23,6 +23,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @IBOutlet weak var tagCollectionView: UICollectionView!
     @IBOutlet weak var postCollectionView: UITableView!
     
+    let cellId = "postCollectionCellId"
+    
     var apiManager: MediumApiManager {
         return context.mediumApiManager
     }
@@ -34,6 +36,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
         tagCollectionView.dataSource = context.appState.tagViewDataSource
         tagCollectionView.delegate = AppState.TagViewDelegate()
+        
+        postCollectionView.register(UINib(nibName: "PostCollectionTableCell", bundle: nil), forCellReuseIdentifier: cellId)
         postCollectionView.delegate = self
         postCollectionView.dataSource = self
     }
@@ -44,7 +48,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell")! as! PostInfoTableCellView
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId)! as! PostInfoTableCellView
         if let title = postCollection?.posts[indexPath.row].title {
             cell.titleLabel?.text = title
         }
