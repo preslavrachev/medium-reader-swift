@@ -5,7 +5,7 @@ target 'MediumReader' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for MediumReader
+  pod "ReadabilityKit", "0.6.0"
 
   target 'MediumReaderTests' do
     inherit! :search_paths
