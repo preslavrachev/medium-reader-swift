@@ -39,6 +39,7 @@
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottom" secondItem="NfB-JX-MzN" secondAttribute="bottom" priority="250" constant="24.5" id="DUU-FD-C7M"/>
                     <constraint firstItem="Boh-GL-YBE" firstAttribute="top" secondItem="ZQp-C9-zIq" secondAttribute="bottom" constant="8" id="LFm-Dl-aR9"/>
                     <constraint firstItem="Boh-GL-YBE" firstAttribute="leading" secondItem="2oo-RJ-RIK" secondAttribute="leadingMargin" id="UMC-pN-n9J"/>
                     <constraint firstAttribute="trailingMargin" secondItem="ZQp-C9-zIq" secondAttribute="trailing" id="VNS-76-Iyl"/>
@@ -48,7 +49,6 @@
                     <constraint firstItem="ZQp-C9-zIq" firstAttribute="top" secondItem="2oo-RJ-RIK" secondAttribute="topMargin" constant="8" id="eca-3n-R5T"/>
                     <constraint firstItem="NfB-JX-MzN" firstAttribute="leading" secondItem="Boh-GL-YBE" secondAttribute="leading" id="jbe-K8-GWk"/>
                     <constraint firstItem="ZQp-C9-zIq" firstAttribute="leading" secondItem="2oo-RJ-RIK" secondAttribute="leadingMargin" id="qs3-j8-r48"/>
-                    <constraint firstAttribute="bottom" secondItem="NfB-JX-MzN" secondAttribute="bottom" constant="24.5" id="wHB-5R-MLm"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
