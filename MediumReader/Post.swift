@@ -11,5 +11,6 @@ import Foundation
 struct Post {
     let id: String
     let title: String
+    var excerpt: String? = nil
     var imageId: String? = nil
 }

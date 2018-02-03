@@ -10,5 +10,6 @@ import UIKit
 
 class PostInfoTableCellView: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel?
+    @IBOutlet weak var excerptLabel: UILabel?
     @IBOutlet weak var coverImage: UIImageView?
 }

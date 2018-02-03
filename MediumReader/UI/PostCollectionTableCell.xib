@@ -53,6 +53,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="coverImage" destination="Boh-GL-YBE" id="wqt-zX-Log"/>
+                <outlet property="excerptLabel" destination="NfB-JX-MzN" id="HLv-O2-kzO"/>
                 <outlet property="titleLabel" destination="ZQp-C9-zIq" id="0OJ-Rh-lwj"/>
             </connections>
             <point key="canvasLocation" x="-20" y="135"/>

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ReadabilityKit
 
 extension UIViewController: ContextProvider {
     var contextProvider: ContextProvider {
@@ -58,9 +59,25 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 imageData in cell.coverImage?.image = UIImage(data: imageData)
             }
         }
+        
+        cell.excerptLabel?.text = postCollection?.posts[indexPath.row].excerpt
 //        cell.articles = self.articles?[indexPath.row]
 //        println("cellForRowAtIndexPath")
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! PostInfoTableCellView
+        let post = (postCollection?.posts[indexPath.row])!
+        
+        let articleUrl = URL(string: "https://medium.com/p/" + post.id)!
+        Readability.parse(url: articleUrl, completion: { data in
+            let description = data?.description
+            self.postCollection?.posts[indexPath.row].excerpt = description
+            tableView.beginUpdates()
+            cell.excerptLabel?.text = description
+            tableView.endUpdates()
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
