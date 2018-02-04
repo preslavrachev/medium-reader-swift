@@ -33,7 +33,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var postCollection: PostCollection? = nil
     
     override func viewDidLoad() {
-        print("VIEW DID LOAD")
         super.viewDidLoad()
         tagCollectionView.dataSource = context.appState.tagViewDataSource
         tagCollectionView.delegate = AppState.TagViewDelegate()
@@ -41,6 +40,15 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         postCollectionView.register(UINib(nibName: "PostCollectionTableCell", bundle: nil), forCellReuseIdentifier: cellId)
         postCollectionView.delegate = self
         postCollectionView.dataSource = self
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(articlePlayRequested),
+                                               name: InterAppNotification.requestArticlePlay.getNotificationName(),
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(articlePauseRequested),
+                                               name: InterAppNotification.requestArticlePause.getNotificationName(),
+                                               object: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -50,19 +58,19 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId)! as! PostInfoTableCellView
-        if let title = postCollection?.posts[indexPath.row].title {
-            cell.titleLabel?.text = title
-        }
         
-        if let imageId = postCollection?.posts[indexPath.row].imageId {
-            apiManager.fetchImage(with: imageId) {
-                imageData in cell.coverImage?.image = UIImage(data: imageData)
+        if let posts = postCollection?.posts {
+            let post: Post = posts[indexPath.row]
+            cell.id = post.id
+            cell.titleLabel?.text = post.title
+            
+            if let imageId = post.imageId {
+                apiManager.fetchImage(with: imageId) {
+                    imageData in cell.coverImage?.image = UIImage(data: imageData)
+                }
             }
         }
-        
-        cell.excerptLabel?.text = postCollection?.posts[indexPath.row].excerpt
-//        cell.articles = self.articles?[indexPath.row]
-//        println("cellForRowAtIndexPath")
+
         return cell
     }
     
@@ -97,11 +105,21 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         
     }
+    
+    func articlePlayRequested(notification: Notification) {
+        print("Article requested for playing: " + (notification.userInfo!["id"] as! String))
+    }
+    
+    func articlePauseRequested(notification: Notification) {
+        print("Article requested for pausing: " + (notification.userInfo!["id"] as! String))
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
-
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
 }

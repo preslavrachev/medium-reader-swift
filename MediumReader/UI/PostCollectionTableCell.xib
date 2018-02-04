@@ -31,29 +31,28 @@
                             <constraint firstAttribute="height" constant="200" id="HEK-zm-ntd"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Excerpt" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NfB-JX-MzN">
-                        <rect key="frame" x="16" y="256" width="334" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZIx-Mh-Jy4">
+                        <rect key="frame" x="16" y="256" width="30" height="30"/>
+                        <state key="normal" title="Play"/>
+                        <connections>
+                            <action selector="handlePlayPause" destination="Ie7-Cx-EP6" eventType="touchUpInside" id="LNL-cs-j4r"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="NfB-JX-MzN" secondAttribute="bottom" priority="250" constant="24.5" id="DUU-FD-C7M"/>
+                    <constraint firstItem="ZIx-Mh-Jy4" firstAttribute="leading" secondItem="2oo-RJ-RIK" secondAttribute="leadingMargin" id="L3V-cZ-f7X"/>
                     <constraint firstItem="Boh-GL-YBE" firstAttribute="top" secondItem="ZQp-C9-zIq" secondAttribute="bottom" constant="8" id="LFm-Dl-aR9"/>
                     <constraint firstItem="Boh-GL-YBE" firstAttribute="leading" secondItem="2oo-RJ-RIK" secondAttribute="leadingMargin" id="UMC-pN-n9J"/>
                     <constraint firstAttribute="trailingMargin" secondItem="ZQp-C9-zIq" secondAttribute="trailing" id="VNS-76-Iyl"/>
+                    <constraint firstItem="ZIx-Mh-Jy4" firstAttribute="top" secondItem="Boh-GL-YBE" secondAttribute="bottom" constant="8" id="Wr6-im-jXk"/>
                     <constraint firstAttribute="trailingMargin" secondItem="Boh-GL-YBE" secondAttribute="trailing" id="Xeh-ge-NdJ"/>
-                    <constraint firstItem="NfB-JX-MzN" firstAttribute="top" secondItem="Boh-GL-YBE" secondAttribute="bottom" constant="8" symbolic="YES" id="b7E-Te-aXX"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="NfB-JX-MzN" secondAttribute="trailing" id="chV-IY-Obw"/>
                     <constraint firstItem="ZQp-C9-zIq" firstAttribute="top" secondItem="2oo-RJ-RIK" secondAttribute="topMargin" constant="8" id="eca-3n-R5T"/>
-                    <constraint firstItem="NfB-JX-MzN" firstAttribute="leading" secondItem="Boh-GL-YBE" secondAttribute="leading" id="jbe-K8-GWk"/>
                     <constraint firstItem="ZQp-C9-zIq" firstAttribute="leading" secondItem="2oo-RJ-RIK" secondAttribute="leadingMargin" id="qs3-j8-r48"/>
+                    <constraint firstAttribute="bottom" secondItem="ZIx-Mh-Jy4" secondAttribute="bottom" constant="15.5" id="vZs-Tw-P3r"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="coverImage" destination="Boh-GL-YBE" id="wqt-zX-Log"/>
-                <outlet property="excerptLabel" destination="NfB-JX-MzN" id="HLv-O2-kzO"/>
                 <outlet property="titleLabel" destination="ZQp-C9-zIq" id="0OJ-Rh-lwj"/>
             </connections>
             <point key="canvasLocation" x="-20" y="135"/>
