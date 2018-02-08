@@ -30,6 +30,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return context.mediumApiManager
     }
     
+    lazy var contentProcessor = ContentExtractorAndPostProcessor()
+    
     var postCollection: PostCollection? = nil
     
     override func viewDidLoad() {
@@ -107,7 +109,16 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func articlePlayRequested(notification: Notification) {
-        print("Article requested for playing: " + (notification.userInfo!["id"] as! String))
+        let postId: String = notification.userInfo!["id"] as! String
+        print("Article requested for playing: " + postId)
+        contentProcessor.fetchFullText(for: "https://medium.com/p/" + postId) {
+            fullText in print(fullText)
+            DispatchQueue.main.async {
+                let sender = notification.object as! Playable
+                sender.updatePlayingStatus(isPlaying: true)
+                print("Article will start playing: " + postId)
+            }
+        }
     }
     
     func articlePauseRequested(notification: Notification) {

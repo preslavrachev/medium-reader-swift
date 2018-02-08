@@ -53,6 +53,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="coverImage" destination="Boh-GL-YBE" id="wqt-zX-Log"/>
+                <outlet property="playPauseButton" destination="ZIx-Mh-Jy4" id="vTS-9U-vkm"/>
                 <outlet property="titleLabel" destination="ZQp-C9-zIq" id="0OJ-Rh-lwj"/>
             </connections>
             <point key="canvasLocation" x="-20" y="135"/>
