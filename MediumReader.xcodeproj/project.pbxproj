@@ -15,7 +15,6 @@
 		463564C51F1F2B3500B48B4B /* MediumApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463564C41F1F2B3500B48B4B /* MediumApiManager.swift */; };
 		463564C71F1FEE8600B48B4B /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463564C61F1FEE8600B48B4B /* Context.swift */; };
 		463C413F20204E6600E8D249 /* PostCollectionTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 463C413E20204E6600E8D249 /* PostCollectionTableCell.xib */; };
-		463FDBDF20276E3A0012582D /* InterAppNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463FDBDE20276E3A0012582D /* InterAppNotification.swift */; };
 		463FDBE120282D850012582D /* ContentExtractorAndPostProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463FDBE020282D850012582D /* ContentExtractorAndPostProcessor.swift */; };
 		4646B8271F5D1D0200D6FD5E /* TagViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4646B8261F5D1D0200D6FD5E /* TagViewCell.swift */; };
 		4652E3B41F21C9DB00BB5164 /* PostInfoTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4652E3B31F21C9DB00BB5164 /* PostInfoTableCellView.swift */; };
@@ -61,7 +60,6 @@
 		463564C41F1F2B3500B48B4B /* MediumApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediumApiManager.swift; sourceTree = "<group>"; };
 		463564C61F1FEE8600B48B4B /* Context.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
 		463C413E20204E6600E8D249 /* PostCollectionTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCollectionTableCell.xib; sourceTree = "<group>"; };
-		463FDBDE20276E3A0012582D /* InterAppNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterAppNotification.swift; sourceTree = "<group>"; };
 		463FDBE020282D850012582D /* ContentExtractorAndPostProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentExtractorAndPostProcessor.swift; sourceTree = "<group>"; };
 		4646B8261F5D1D0200D6FD5E /* TagViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagViewCell.swift; sourceTree = "<group>"; };
 		4652E3B31F21C9DB00BB5164 /* PostInfoTableCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostInfoTableCellView.swift; sourceTree = "<group>"; };
@@ -210,7 +208,6 @@
 				46B211561F103281006DCB73 /* Info.plist */,
 				463564C61F1FEE8600B48B4B /* Context.swift */,
 				460739081F2B07B30032D966 /* AppState.swift */,
-				463FDBDE20276E3A0012582D /* InterAppNotification.swift */,
 			);
 			path = MediumReader;
 			sourceTree = "<group>";
@@ -548,7 +545,6 @@
 				463564C51F1F2B3500B48B4B /* MediumApiManager.swift in Sources */,
 				463564C21F1AA68B00B48B4B /* JsonParsers.swift in Sources */,
 				46B211491F103281006DCB73 /* AppDelegate.swift in Sources */,
-				463FDBDF20276E3A0012582D /* InterAppNotification.swift in Sources */,
 				4646B8271F5D1D0200D6FD5E /* TagViewCell.swift in Sources */,
 				463FDBE120282D850012582D /* ContentExtractorAndPostProcessor.swift in Sources */,
 				463564C71F1FEE8600B48B4B /* Context.swift in Sources */,

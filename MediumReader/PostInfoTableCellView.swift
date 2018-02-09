@@ -18,17 +18,16 @@ class PostInfoTableCellView: UITableViewCell, Playable{
     @IBOutlet weak var coverImage: UIImageView?
     @IBOutlet weak var playPauseButton: UIButton?
     
+    var delegate: PlayableDelegate!
+    
     var id: String?
     private var isPlaying: Bool = false
     
     
     @IBAction func handlePlayPause() {
         if let id = self.id {
-            let notificationName = isPlaying ? InterAppNotification.requestArticlePause : InterAppNotification.requestArticlePlay
-            NotificationCenter.default.post(name: notificationName.getNotificationName(),
-                                            object: self,
-                                            userInfo: ["id": id])
-            
+            isPlaying ? delegate.articlePauseRequested(id: id, from: self) :
+                delegate.articlePlayRequested(id: id, from: self)
             playPauseButton?.setTitle("Loading", for: .disabled)
             playPauseButton?.isEnabled = false
         }

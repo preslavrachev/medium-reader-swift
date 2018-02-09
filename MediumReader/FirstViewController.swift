@@ -9,6 +9,11 @@
 import UIKit
 import ReadabilityKit
 
+protocol PlayableDelegate {
+    func articlePlayRequested(id: String, from requestor: Playable) -> Void
+    func articlePauseRequested(id: String, from requestor: Playable) -> Void
+}
+
 extension UIViewController: ContextProvider {
     var contextProvider: ContextProvider {
         return UIApplication.shared.delegate as! ContextProvider
@@ -19,8 +24,10 @@ extension UIViewController: ContextProvider {
     }
 }
 
-class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, PlayableDelegate {
     
+    private var currentPlayableRequestor: Playable?
+
     @IBOutlet weak var tagCollectionView: UICollectionView!
     @IBOutlet weak var postCollectionView: UITableView!
     
@@ -42,15 +49,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         postCollectionView.register(UINib(nibName: "PostCollectionTableCell", bundle: nil), forCellReuseIdentifier: cellId)
         postCollectionView.delegate = self
         postCollectionView.dataSource = self
-        
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(articlePlayRequested),
-                                               name: InterAppNotification.requestArticlePlay.getNotificationName(),
-                                               object: nil)
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(articlePauseRequested),
-                                               name: InterAppNotification.requestArticlePause.getNotificationName(),
-                                               object: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -63,6 +61,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         if let posts = postCollection?.posts {
             let post: Post = posts[indexPath.row]
+            cell.delegate = self
             cell.id = post.id
             cell.titleLabel?.text = post.title
             
@@ -108,21 +107,25 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
     }
     
-    func articlePlayRequested(notification: Notification) {
-        let postId: String = notification.userInfo!["id"] as! String
-        print("Article requested for playing: " + postId)
-        contentProcessor.fetchFullText(for: "https://medium.com/p/" + postId) {
+    func articlePlayRequested(id: String, from requestor: Playable) -> Void {
+        print("Article requested for playing: " + id)
+        currentPlayableRequestor?.updatePlayingStatus(isPlaying: false)
+        contentProcessor.fetchFullText(for: "https://medium.com/p/" + id) {
             fullText in print(fullText)
             DispatchQueue.main.async {
-                let sender = notification.object as! Playable
-                sender.updatePlayingStatus(isPlaying: true)
-                print("Article will start playing: " + postId)
+                print("Article will start playing: " + id)
+                requestor.updatePlayingStatus(isPlaying: true)
+                self.currentPlayableRequestor = requestor
             }
         }
     }
     
-    func articlePauseRequested(notification: Notification) {
-        print("Article requested for pausing: " + (notification.userInfo!["id"] as! String))
+    func articlePauseRequested(id: String, from requestor: Playable) -> Void {
+        print("Article requested for pausing: " + id)
+        // TODO: request the main queue within the playable itself
+        DispatchQueue.main.async {
+            requestor.updatePlayingStatus(isPlaying: false)
+        }
     }
 
     override func didReceiveMemoryWarning() {
