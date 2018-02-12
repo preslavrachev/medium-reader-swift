@@ -6,6 +6,7 @@
 //  Copyright © 2017 Preslav Rachev. All rights reserved.
 //
 
+import AVFoundation
 import UIKit
 import ReadabilityKit
 
@@ -38,6 +39,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     lazy var contentProcessor = ContentExtractorAndPostProcessor()
+    lazy var speechSynth: AVSpeechSynthesizer = AVSpeechSynthesizer()
     
     var postCollection: PostCollection? = nil
     
@@ -116,6 +118,9 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 print("Article will start playing: " + id)
                 requestor.updatePlayingStatus(isPlaying: true)
                 self.currentPlayableRequestor = requestor
+                
+                let utterance = AVSpeechUtterance(string: fullText)
+                self.speechSynth.speak(utterance)
             }
         }
     }
@@ -125,6 +130,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         // TODO: request the main queue within the playable itself
         DispatchQueue.main.async {
             requestor.updatePlayingStatus(isPlaying: false)
+            self.speechSynth.stopSpeaking(at: .immediate)
         }
     }
 
