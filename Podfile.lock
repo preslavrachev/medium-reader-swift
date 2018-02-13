@@ -1,12 +1,19 @@
 PODS:
+  - MRKit (0.0.1):
+    - ReadabilityKit (= 0.7.0)
   - ReadabilityKit (0.7.0)
 
 DEPENDENCIES:
-  - ReadabilityKit (= 0.7.0)
+  - MRKit (from `./MRkit`)
+
+EXTERNAL SOURCES:
+  MRKit:
+    :path: ./MRkit
 
 SPEC CHECKSUMS:
+  MRKit: 36e0509d4c5cdc299dbd108ea378133815846524
   ReadabilityKit: 178dccce3fd961c446b88e9985c08464b4430f42
 
-PODFILE CHECKSUM: b5d86842b187f4100441b343352394a1852ae00c
+PODFILE CHECKSUM: 71a6ec5f208d15d7beddc2bc40b8fc85bed1036e
 
 COCOAPODS: 1.3.1

@@ -8,7 +8,7 @@
 
 import AVFoundation
 import UIKit
-import ReadabilityKit
+import MRKit
 
 protocol PlayableDelegate {
     func articlePlayRequested(id: String, from requestor: Playable) -> Void
@@ -78,17 +78,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath) as! PostInfoTableCellView
-        let post = (postCollection?.posts[indexPath.row])!
-        
-        let articleUrl = URL(string: "https://medium.com/p/" + post.id)!
-        Readability.parse(url: articleUrl, completion: { data in
-            let description = data?.description
-            self.postCollection?.posts[indexPath.row].excerpt = description
-            tableView.beginUpdates()
-            cell.excerptLabel?.text = description
-            tableView.endUpdates()
-        })
+        // TODO: Do stuff on cell tap, if necessary
     }
     
     override func viewWillAppear(_ animated: Bool) {
