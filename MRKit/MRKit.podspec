@@ -136,5 +136,6 @@ Pod::Spec.new do |s|
   # s.dependency "JSONKit", "~> 1.4"
 
   s.dependency "ReadabilityKit", "0.7.0"
+  s.dependency "Alamofire", "~> 4.0"
 
 end
